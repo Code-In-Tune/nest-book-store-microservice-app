@@ -12,7 +12,7 @@ services:
     volumes:
       - mongo_data:/data/db
       - ./docker/mongo/script:/docker-entrypoint-initdb.d:ro
-      - ./docker/mongo/seed:/seed:ro
+      - ./docker/mongo/seed/books.json:/books.json:ro
 
   mongo-express:
     image: mongo-express:1
