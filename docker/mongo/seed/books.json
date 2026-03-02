@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Alice In Wonderland",
+    "author": "Lewis Carroll",
+    "price": 10.9,
+    "isbn": "9780062936615",
+    "publisher": "Harper",
+    "availability": true,
+    "quantity": 5
+  },
+
+  {
+    "title": "Alice Through The Looking Glass",
+    "author": "Lewis Carroll",
+    "price": 10.9,
+    "isbn": "9780062936615",
+    "publisher": "Harper",
+    "availability": true,
+    "quantity": 5
+  }
+]
