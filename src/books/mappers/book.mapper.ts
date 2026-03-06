@@ -3,6 +3,8 @@ import { Book } from '../model/book.model';
 import { FindBookByIdResponseDto } from '../use-cases/find-by-id/find-book-by-id-response.dto';
 import { SaveBookRequestDto } from '../use-cases/save/save-book-request.dto';
 import { SaveBookResponseDto } from '../use-cases/save/save-book-response.dto';
+import { UpdateBookRequestDto } from '../use-cases/update/update-book-request.dto';
+import { UpdateBookResponseDto } from '../use-cases/update/update-book-response.dto';
 
 @Injectable()
 export class BookMapper {
@@ -33,6 +35,32 @@ export class BookMapper {
   }
 
   toSaveBookResponse(book: Book): SaveBookResponseDto {
+    return {
+      id: book.id,
+      title: book.title,
+      author: book.author,
+      price: book.price,
+      isbn: book.isbn,
+      publisher: book.publisher,
+      availability: book.availability,
+      quantity: book.quantity,
+    };
+  }
+
+  fromUpdateBookRequest(request: UpdateBookRequestDto, id: string): Book {
+    return {
+      id: id,
+      title: request.title,
+      author: request.author,
+      price: Number(request.price),
+      isbn: request.isbn,
+      publisher: request.publisher,
+      availability: true, // Assuming updated books remain available
+      quantity: Number(request.quantity),
+    };
+  }
+
+  toUpdateBookResponse(book: Book): UpdateBookResponseDto {
     return {
       id: book.id,
       title: book.title,
