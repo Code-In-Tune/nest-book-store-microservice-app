@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { FindBookByIdUseCase } from '../find-book-by-id.use-case';
+import { FindBookByIdUseCase } from './find-book-by-id.use-case';
 import type { BookRepository } from 'src/books/repositories/book.repository';
 import { FindBookByIdResponseDto } from './find-book-by-id-response.dto';
 import { BookMapper } from 'src/books/mappers/book.mapper';
