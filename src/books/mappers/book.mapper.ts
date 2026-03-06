@@ -5,6 +5,7 @@ import { SaveBookRequestDto } from '../use-cases/save/save-book-request.dto';
 import { SaveBookResponseDto } from '../use-cases/save/save-book-response.dto';
 import { UpdateBookRequestDto } from '../use-cases/update/update-book-request.dto';
 import { UpdateBookResponseDto } from '../use-cases/update/update-book-response.dto';
+import { FindBooksResponseDto } from '../use-cases/find-all/find-books-response.dto';
 
 @Injectable()
 export class BookMapper {
@@ -70,6 +71,12 @@ export class BookMapper {
       publisher: book.publisher,
       availability: book.availability,
       quantity: book.quantity,
+    };
+  }
+
+  toFindAllResponse(books: Book[]): FindBooksResponseDto {
+    return {
+      books: books.map((book) => this.toFindByIdResponse(book)),
     };
   }
 }
