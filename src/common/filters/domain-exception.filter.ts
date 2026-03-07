@@ -7,6 +7,7 @@ import {
 import { Response } from 'express';
 import { DomainError } from '../../books/domain/errors/domain-error';
 import { BookNotFoundError } from '../../books/domain/errors/book-not-found-error';
+import { SaleNotFoundError } from 'src/sales/domain/errors/sale-not-found-error';
 
 @Catch(DomainError)
 export class DomainExceptionFilter implements ExceptionFilter {
@@ -27,6 +28,13 @@ export class DomainExceptionFilter implements ExceptionFilter {
 
   private mapToHttp(exception: DomainError): { status: number; error: string } {
     if (exception instanceof BookNotFoundError) {
+      return {
+        status: HttpStatus.NOT_FOUND,
+        error: `Not Found: #${exception.details?.id}`,
+      };
+    }
+
+    if (exception instanceof SaleNotFoundError) {
       return {
         status: HttpStatus.NOT_FOUND,
         error: `Not Found: #${exception.details?.id}`,
