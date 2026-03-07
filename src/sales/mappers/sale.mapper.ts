@@ -1,4 +1,5 @@
 import { Sale } from '../model/sale.model';
+import { FindSalesResponseDto } from '../use-cases/find-all/find-sales-response.dto';
 import { FindSaleByIdResponseDto } from '../use-cases/find-by-id/find-sale-by-id-response.dto';
 
 export class SaleMapper {
@@ -14,6 +15,12 @@ export class SaleMapper {
       },
       quantity: sale.quantity,
       amount: sale.amount,
+    };
+  }
+
+  toFindSalesResponseDto(sales: Sale[]): FindSalesResponseDto {
+    return {
+      sales: sales.map((sale) => this.toFindSaleByIdResponseDto(sale)),
     };
   }
 }
