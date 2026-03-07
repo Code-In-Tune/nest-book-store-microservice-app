@@ -1,4 +1,4 @@
-export class FindSaleByIdResponseDto {
+export class SaveSaleResponseDto {
   id?: string;
   book: {
     bookId?: string;

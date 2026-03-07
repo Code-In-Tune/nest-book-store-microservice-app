@@ -1,5 +1,5 @@
 export interface BookSnapshot {
-  bookId: string;
+  bookId?: string;
   title: string;
   author: string;
   price: number;
