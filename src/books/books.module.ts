@@ -28,5 +28,6 @@ import { BookMongo, BookSchema } from './repositories/mongoose/book.schema';
     FindBookByIdService,
     FindBooksService,
   ],
+  exports: [BOOK_REPOSITORY],
 })
 export class BooksModule {}

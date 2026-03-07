@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BooksModule } from './books/books.module';
+import { SalesModule } from './sales/sale.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { BooksModule } from './books/books.module';
       }),
     }),
     BooksModule,
+    SalesModule,
   ],
 })
 export class AppModule {}
