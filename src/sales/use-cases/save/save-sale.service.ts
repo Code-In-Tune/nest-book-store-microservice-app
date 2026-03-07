@@ -27,6 +27,9 @@ export class SaveSaleService implements SaveSaleUseCase {
       throw new BookNotFoundError(request.bookId);
     }
 
+    book.quantity -= request.quantity;
+    await this.bookRepostory.save(book);
+
     const sale: Sale = {
       book: {
         bookId: book.id,
